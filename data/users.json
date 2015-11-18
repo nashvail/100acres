@@ -10,5 +10,11 @@
         "firstname": "Nishant",
         "lastname": "Verma",
         "password": "whatthehell"
+    },
+    "duhGeeek": {
+        "username": "duhGeeek",
+        "firstname": "The",
+        "lastname": "Geek",
+        "password": "whatthehell"
     }
 }

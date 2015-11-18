@@ -17,7 +17,7 @@ class UsersDatabase {
 	public function addNewUser($username, $firstname, $lastname, $password) {
 		if ( !$this->userExists($username) ) {
 			$newUser = new User($username, $firstname, $lastname, $password)	;
-			$this->usersData->writeData($newUser->data());
+			$this->usersData->addNew($newUser->data(), 'username');
 			return true;
 		} else {
 			return false;

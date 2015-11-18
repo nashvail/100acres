@@ -1,0 +1,17 @@
+[
+    {
+        "price": 120,
+        "name": "Fun House",
+        "bought": false
+    },
+    {
+        "price": 220,
+        "name": "Old Residence",
+        "bought": false
+    },
+    {
+        "price": 500,
+        "name": "Beach House",
+        "bought": false
+    }
+]

@@ -1,13 +1,23 @@
 <?php 
 
+error_reporting(E_ERROR | E_PARSE);
+
 require 'UsersDatabase.php';
+require 'PropertiesDatabase.php';
 
-$users = new UsersDatabase('data.json');
+$properties = new PropertiesDatabase('data/properties.json');
+$properties->addNew(120, 'Fun House');
+$properties->addNew(220, 'Old Residence');
+$properties->addNew(500, 'Beach House');
+print_r($properties->allTheData());
 
-if($users->addNewUser('nishantve1', 'Nishant', 'Verma', 'whatthehell')) 
-	echo "new user added successfully";
-else 
-	echo "user already exists in the database";
+// $users = new UsersDatabase('data/users.json');
+
+// if($users->addNewUser('duhGeeek', 'The', 'Geek', 'whatthehell')) 
+// 	echo "new user added successfully";
+// else 
+// 	echo "user already exists in the database";
+
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +38,7 @@ else
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+        <h1>Hello world</h1>
         <!-- Add your site or application content here -->
     </body>
 </html>

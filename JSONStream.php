@@ -11,21 +11,33 @@ class JSONStream {
 			echo 'The file is not writable, you will not be able to perform I/O operations';
 	}
 
-	public function writeData($newData) {
-
+	// Writes new data to already existing dat in the database
+	public function addNew($newData, $key) {
 		$arr_data = $this->dataArray();
-		$arr_data[$newData['username']] = $newData;
-		// array_push($arr_data, $newData);
 
-		$finalData = json_encode($arr_data, JSON_PRETTY_PRINT);
+		if ( isset($key) ) {
+			$arr_data[$newData[$key]] = $newData;
+		} else {
+			array_push($arr_data, $newData);
+		}
 
-		// Write new data to file
-		if(file_put_contents($this->file, $finalData)) {
+		$this->overwrite($arr_data);
+	}
+
+	public function update($dataId, $fieldName, $newValue) {
+		$arr_data = $this->dataArray();
+		$arr_data[$dataId][$fieldName] = $newValue;
+
+		$this->overwrite($arr_data);
+
+	}
+
+	private function overwrite($data) {
+		if(file_put_contents($this->file, json_encode($data, JSON_PRETTY_PRINT))) {
 			echo "Data saved successfully";
 		} else {
 			echo "There was an error saving new data, file doesn't seem to be writable";
 		}
-
 	}
 
 	public function dataArray() {
