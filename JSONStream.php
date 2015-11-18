@@ -14,7 +14,8 @@ class JSONStream {
 	public function writeData($newData) {
 
 		$arr_data = $this->dataArray();
-		array_push($arr_data, $newData);
+		$arr_data[$newData['username']] = $newData;
+		// array_push($arr_data, $newData);
 
 		$finalData = json_encode($arr_data, JSON_PRETTY_PRINT);
 

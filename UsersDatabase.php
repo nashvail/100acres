@@ -14,8 +14,14 @@ class UsersDatabase {
 		$this->usersData = new JSONStream($jsonDataFile);
 	}
 
-	public function addNewUser($newUser) {
-		
+	public function addNewUser($username, $firstname, $lastname, $password) {
+		if ( !$this->userExists($username) ) {
+			$newUser = new User($username, $firstname, $lastname, $password)	;
+			$this->usersData->writeData($newUser->data());
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public function userExists($username) {
