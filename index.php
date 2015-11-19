@@ -6,6 +6,7 @@ session_start();
 
 // Array to store login errors if they occur
 $loginerrors = isset($_SESSION['loginerrors']) ? $_SESSION['loginerrors'] : [];
+$fields= isset($_SESSION['fields']) ? $_SESSION['fields'] : [];
 
 $usersData = new UsersDatabase('data/users.json');
 
@@ -44,14 +45,14 @@ if ( isset($_SESSION['username']) ) {
          <?php if ( !empty($loginerrors) ) : ?>
          <div class="alert alert-danger loginBox__errorbox">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <strong>Dang it!</strong> &nbsp;<?php echo $loginerrors[0];?>
+          <?php echo $loginerrors[0];?>
          </div>
          <?php endif; ?>
 
           <div class="loginBox">
             <form action="login.php" method="POST" role="form">
              <div class="form-group">
-               <input type="text" class="form-control loginBox__input" id="" placeholder="Username" name = "username">
+               <input type="text" class="form-control loginBox__input" id="" placeholder="Username" name = "username" <?php echo !empty($fields) ? 'value="'. $fields['username'] .'"' : ''; ?>>
 
                <input type="password" class="form-control loginBox__input" id="" placeholder="Password" name="password">
                </div>

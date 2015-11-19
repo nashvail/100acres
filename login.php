@@ -9,29 +9,26 @@ $users = new UsersDatabase('data/users.json');
 // Array to store any possible arrays
 $errors = array();
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$fields = array(
+	'username' => $_POST['username'],
+	'password' => $_POST['password']
+);
 
 // Collect all the errors
-if ( empty($username) || empty($password) ) {
+if ( empty($fields['username']) || empty($fields['password']) ) {
 	$errors[] = "Please fill in all the fields";
-} else if ( !$users->userExists($username) ) {
+} else if ( !$users->userExists($fields['username']) ) {
 	$errors[] = "No such user found in the database";
-} else if ( !$users->authenticationSucceeded($username, $password) ) {
+} else if ( !$users->authenticationSucceeded($fields['username'], $fields['password']) ) {
 	$errors[] = "Wrong username and password combination";
 }
 
 if ( empty($errors) ) { // If no errors occured
-
-	if( $users->authenticationSucceeded($username, $password) ) {
-		$_SESSION['username'] = $username;
-	} else {
-		echo "An error occured during authentication";
-	}
-	
+		$_SESSION['username'] = $fields['username'];
 } 
 
 $_SESSION['loginerrors'] = $errors;
+$_SESSION['fields'] = $fields;
 
 header("Location: index.php");
 
