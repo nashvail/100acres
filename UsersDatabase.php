@@ -24,8 +24,20 @@ class UsersDatabase {
 		}
 	}
 
+	public function authenticationSucceeded($username, $password) {
+		if( $this->userExists($username) ) {
+			return ( $this->usersData->dataArray()[$username]['password'] == $password );
+		} else {
+			return false;
+		}
+	}
+
 	public function userExists($username) {
 		return (array_key_exists($username, $this->usersData->dataArray()));
+	}
+
+	public function userFullName($username) {
+		return ( $this->usersData->dataArray()[$username]['firstname'] . " " . $this->usersData->dataArray()[$username]['lastname'] );
 	}
 
 }
