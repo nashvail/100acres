@@ -1,15 +1,15 @@
 <?php 
 
-error_reporting(E_ERROR | E_PARSE);
+// error_reporting(E_ERROR | E_PARSE);
 
-require 'UsersDatabase.php';
-require 'PropertiesDatabase.php';
+// require 'UsersDatabase.php';
+// require 'PropertiesDatabase.php';
 
-$properties = new PropertiesDatabase('data/properties.json');
-$properties->addNew(120, 'Fun House');
-$properties->addNew(220, 'Old Residence');
-$properties->addNew(500, 'Beach House');
-print_r($properties->allTheData());
+// $properties = new PropertiesDatabase('data/properties.json');
+// $properties->addNew(120, 'Fun House');
+// $properties->addNew(220, 'Old Residence');
+// $properties->addNew(500, 'Beach House');
+// print_r($properties->allTheData());
 
 // $users = new UsersDatabase('data/users.json');
 
@@ -28,17 +28,31 @@ print_r($properties->allTheData());
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>100Acres - Login</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1>Hello world</h1>
-        <!-- Add your site or application content here -->
+        <div class="container">
+        <center><h1 class ="loginBox__topHeading">Welcome to 100acres!</h1></center>
+          <div class="loginBox">
+            <form action="" method="POST" role="form">
+               <div class="form-group">
+                 <input type="text" class="form-control loginBox__input" id="" placeholder="Username" name = "username">
+
+                 <input type="password" class="form-control loginBox__input" id="" placeholder="Password" name="password">
+               </div>
+           
+               <center><button type="submit" class="btn btn-lg btn-primary loginBox__button">Login</button></center>
+             </form> 
+          </div>
+        </div>
     </body>
 </html>
