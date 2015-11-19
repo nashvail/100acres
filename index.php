@@ -4,6 +4,9 @@ require 'UsersDatabase.php';
 
 session_start();
 
+// Array to store login errors if they occur
+$loginerrors = isset($_SESSION['loginerrors']) ? $_SESSION['loginerrors'] : [];
+
 $usersData = new UsersDatabase('data/users.json');
 
 if ( isset($_SESSION['username']) ) {
@@ -37,6 +40,14 @@ if ( isset($_SESSION['username']) ) {
         <div class="container">
         <?php if( !isset($_SESSION['username']) ):  ?>
          <center><h1 class ="loginBox__topHeading">Welcome to 100acres!</h1></center>
+
+         <?php if ( !empty($loginerrors) ) : ?>
+         <div class="alert alert-danger loginBox__errorbox">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <strong>Dang it!</strong> &nbsp;<?php echo $loginerrors[0];?>
+         </div>
+         <?php endif; ?>
+
           <div class="loginBox">
             <form action="login.php" method="POST" role="form">
              <div class="form-group">
@@ -68,5 +79,10 @@ if ( isset($_SESSION['username']) ) {
          </div>
         <?php endif; ?>
         </div>
+        <script src = "js/jquery.min.js"></script>
+        <script src = "js/bootstrap.min.js"></script>
     </body>
 </html>
+<?php 
+unset($_SESSION['loginerrors']);
+?>

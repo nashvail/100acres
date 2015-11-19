@@ -16,5 +16,12 @@
         "firstname": "The",
         "lastname": "Geek",
         "password": "whatthehell"
+    },
+    "maheshdev": {
+        "username": "maheshdev",
+        "firstname": "Mahesh",
+        "lastname": "Yadav",
+        "password": "chutiya"
     }
+
 }
