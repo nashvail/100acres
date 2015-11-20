@@ -30,16 +30,17 @@ class PropertiesDatabase{
 	}
 
 	// This will need to be updated later ya know if you add new fields to the property data model
-	public function addNew($price, $name) {
+	public function addNew($price, $name, $owner, $location) {
 		$this->propertiesData->addNew(array(
 			'price' => $price,
 			'name' => $name,
-			'bought' => false
+			'location' => $location,
+			'bought' => false,
+			'owner' => $owner
 		));
 	}
-
-// only for testing purposes
-	public function allTheData() {
+	
+	public function dataArray() {
 		return $this->propertiesData->dataArray();
 	}
 

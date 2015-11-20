@@ -15,22 +15,56 @@
 
 
 .content
-	margin-top : 40px
 	padding : 10px
-	background-color : white
+	&:after
+		content : ''
+		display : table
+		clear : both
 
 .header__button
 	font-weight : bold
 	float : right
 	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.17)
 	border-radius: 4px
-	width : 160px
+	width : 140px
 	height : 40px
 	font-size : 1.6rem
+	margin-right : 10px
 
 .header__button--sell 
 	@extend .header__button
 
 .header__button--logout
 	@extend .header__button
-	margin-right : 10px
+	margin-right : 0px
+
+.header__button--report
+	@extend .header__button
+	width: 180px
+
+.propertyCard 
+	width : 360px
+	height : 160px
+	background-color : white
+	border: 1px solid #D1CDCD
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.06)
+	border-radius: 4px
+	float : left
+	margin: 20px 20px 0 0
+	cursor : pointer
+	padding : 20px
+	&:nth-child(3n)
+		margin-right : 0px
+	&:hover 
+		border : 1px solid #74B05D
+		box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.2)
+		transition : box-shadow 0.3s
+
+.propertyCard__price
+	font-size : 4.8rem
+	font-weight : bolder
+	color : #74B05D
+
+.propertyCard__name
+	font-weight : bold
+	font-size : 2rem
