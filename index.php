@@ -37,7 +37,7 @@ if ( isset($_SESSION['username']) ) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'> -->
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
@@ -88,13 +88,17 @@ if ( isset($_SESSION['username']) ) {
            </div>
           </div>
          <div class="content">
+          
 
-         <?php foreach($properties as $property): ?> 
-          <div class="propertyCard">
+         <?php foreach($properties as $id => $property): ?> 
+          <a href= <?php echo "buyproperty.php?propertyId=". $id . "&buyer=" . $username; ?> class = "propertyCard">
+          <!-- <div class="propertyCard"> -->
+            <div class="propertyCard__buyIndicator">CLICK TO BUY THIS PROPERTY</div>
            <span class="propertyCard__name"><?php echo $property['name'] ?></span><br/>
            <span class="propertyCard__location"><?php echo $property['location'] ?></span><br/>
            <span class = "propertyCard__price">&#8377;<?php echo $property['price'] ?></span>
-          </div>
+          <!-- </div> -->
+            </a>
          <?php endforeach; ?>
 
          </div>

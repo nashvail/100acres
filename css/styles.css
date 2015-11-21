@@ -42,12 +42,10 @@
   height: 40px;
   line-height: 40px; }
 
-.content {
-  padding: 10px; }
-  .content:after {
-    content: "";
-    display: table;
-    clear: both; }
+.content:after {
+  content: "";
+  display: table;
+  clear: both; }
 
 .header__button, .header__button--sell, .header__button--logout, .header__button--report {
   font-weight: bold;
@@ -66,22 +64,46 @@
   width: 180px; }
 
 .propertyCard {
+  position: relative;
+  display: inline-block;
   width: 360px;
   height: 160px;
   background-color: white;
   border: 1px solid #D1CDCD;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
   border-radius: 4px;
-  float: left;
-  margin: 20px 20px 0 0;
+  margin: 26px 26px 0 0;
   cursor: pointer;
-  padding: 20px; }
-  .propertyCard:nth-child(3n) {
-    margin-right: 0px; }
+  padding: 20px 20px 20px 20px;
+  overflow: hidden;
+  transition: all 0.3s; }
   .propertyCard:hover {
-    border: 1px solid #74B05D;
-    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s; }
+    text-decoration: none; }
+  .propertyCard:nth-child(3n) {
+    margin-right: 0px !important; }
+  .propertyCard:hover {
+    border: 1px solid #3F7CB4;
+    padding: 10px 20px 20px 20px;
+    transition: all 0.3s; }
+    .propertyCard:hover .propertyCard__buyIndicator {
+      margin-bottom: 0px;
+      transition: all 0.2s; }
+
+.propertyCard__buyIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 35px;
+  width: 100%;
+  background-color: #3F7CB4;
+  margin-bottom: -35px;
+  transition: all 0.05s;
+  text-align: center;
+  color: white;
+  vertical-align: middle;
+  font-size: 1.6rem;
+  font-weight: bolder;
+  line-height: 35px; }
 
 .propertyCard__price {
   font-size: 4.8rem;
@@ -97,7 +119,6 @@ html {
 
 body {
   background-color: #F6F6F6;
-  font-family: "Open Sans", "Source Sans Pro", sans-serif;
-  box-sizing: border-box; }
+  font-family: "Open Sans", "Source Sans Pro", sans-serif; }
 
 /*# sourceMappingURL=styles.css.map */
