@@ -2,43 +2,49 @@
     {
         "price": 120,
         "name": "Fun House",
-        "location" : "Surat",
-        "bought": false,
-        "owner" : "nishantve1"
+        "location": "Surat",
+        "sold": true,
+        "owner": "nishantve1",
+        "buyer": "duhGeeek"
     },
     {
         "price": 220,
         "name": "Old Residence",
-        "location" : "Surat",
-        "bought": false,
-        "owner" : "nishantse1"
+        "location": "Surat",
+        "sold": true,
+        "owner": "nishantse1",
+        "buyer": "nishantve1"
     },
     {
         "price": 500,
         "name": "Beach House",
-        "location" : "Surat",
-        "bought": false,
-        "owner" : "maheshdev"
+        "location": "Surat",
+        "sold": false,
+        "owner": "maheshdev",
+        "buyer": ""
     },
     {
         "price": 120,
         "name": "Fun House",
-        "location" : "Surat",
-        "bought": false,
-        "owner" : "nishantve1"
+        "location": "Surat",
+        "sold": true,
+        "owner": "nishantve1",
+        "buyer": "maheshdev"
     },
     {
         "price": 220,
         "name": "Old Residence",
-        "location" : "Surat",
-        "bought": false,
-        "owner" : "nishantse1"
+        "location": "Surat",
+        "sold": true,
+        "owner": "nishantse1",
+        "buyer": "duhGeeek"
     },
     {
         "price": 500,
         "name": "Beach House",
-        "location" : "Surat",
-        "bought": false,
-        "owner" : "duhGeeek"
+        "location": "Surat",
+        "sold": false,
+        "owner": "duhGeeek",
+        "buyer": ""
     }
 ]

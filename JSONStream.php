@@ -34,9 +34,9 @@ class JSONStream {
 
 	private function overwrite($data) {
 		if(file_put_contents($this->file, json_encode($data, JSON_PRETTY_PRINT))) {
-			echo "Data saved successfully";
+			return true;
 		} else {
-			echo "There was an error saving new data, file doesn't seem to be writable";
+			return false;
 		}
 	}
 

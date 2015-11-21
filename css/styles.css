@@ -79,8 +79,6 @@
   transition: all 0.3s; }
   .propertyCard:hover {
     text-decoration: none; }
-  .propertyCard:nth-child(3n) {
-    margin-right: 0px !important; }
   .propertyCard:hover {
     border: 1px solid #3F7CB4;
     padding: 10px 20px 20px 20px;

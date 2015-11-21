@@ -19,7 +19,7 @@ if ( isset($_SESSION['username']) ) {
  $username = $_SESSION['username'];
  $name= $usersData->userFullName($username);
 
- $properties = $propertiesData->dataArray();
+ $properties = $propertiesData->buyableProperties($username);
 }
 
 ?>
@@ -47,6 +47,14 @@ if ( isset($_SESSION['username']) ) {
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div class="container">
+
+        <?php if( !empty($_SESSION['buyingConfirmation'])): ?>
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <?php echo $_SESSION['buyingConfirmation']; ?>
+        </div>
+        <?php endif; ?>
+
         <?php if( !isset($_SESSION['username']) ):  ?>
          <center><h1 class ="loginBox__topHeading">Welcome to 100acres!</h1></center>
 
@@ -89,11 +97,11 @@ if ( isset($_SESSION['username']) ) {
           </div>
          <div class="content">
           
-
+         <center><h4><?php if( empty($properties) ) echo "There are no properties available to buy :-( Check back soon"; ?></h4></center>
          <?php foreach($properties as $id => $property): ?> 
           <a href= <?php echo "buyproperty.php?propertyId=". $id . "&buyer=" . $username; ?> class = "propertyCard">
           <!-- <div class="propertyCard"> -->
-            <div class="propertyCard__buyIndicator">CLICK TO BUY THIS PROPERTY</div>
+            <div class="propertyCard__buyIndicator">BUY THIS PROPERTY</div>
            <span class="propertyCard__name"><?php echo $property['name'] ?></span><br/>
            <span class="propertyCard__location"><?php echo $property['location'] ?></span><br/>
            <span class = "propertyCard__price">&#8377;<?php echo $property['price'] ?></span>
@@ -159,4 +167,5 @@ if ( isset($_SESSION['username']) ) {
 </html>
 <?php 
 unset($_SESSION['loginerrors']);
+unset($_SESSION['buyingConfirmation']);
 ?>
