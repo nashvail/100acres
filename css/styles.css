@@ -43,7 +43,12 @@
   line-height: 40px; }
 
 .content {
-  background-color: black; }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  margin-top: 40px; }
   .content:after {
     content: "";
     display: table;
@@ -67,14 +72,13 @@
 
 .propertyCard {
   position: relative;
-  display: inline-block;
   width: 360px;
   height: 160px;
   background-color: white;
   border: 1px solid #D1CDCD;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
   border-radius: 4px;
-  margin: 26px 20px 0 0;
+  margin: 10px;
   cursor: pointer;
   padding: 20px 20px 20px 20px;
   overflow: hidden;

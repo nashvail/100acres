@@ -48,7 +48,34 @@
         <!-- Add your site or application content here -->
         <div class="container">
           <?php if( empty($error) ): ?>
-            <p>Hello world! This is HTML5 Boilerplate.</p>
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#all_properties" aria-controls="home" role="tab" data-toggle="tab">All Properties</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#sold_properties" aria-controls="tab" role="tab" data-toggle="tab">Sold Properties</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#unsold_properites" aria-controls="tab" role="tab" data-toggle="tab">Unsold Properties</a>
+                    </li>
+
+                </ul>
+            
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="all_properties">
+                      <?php print_r( $allProperties); ?>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="sold_properties">
+                      <?php print_r( $soldProperties); ?>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="unsold_properties">
+                      <?php print_r( $unsoldProperties ); ?>
+                    </div>
+                </div>
+            </div>
           <?php endif; ?>
         </div>
 

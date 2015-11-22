@@ -35,9 +35,9 @@
         "price": 220,
         "name": "Old Residence",
         "location": "Surat",
-        "sold": false,
+        "sold": true,
         "owner": "nishantse1",
-        "buyer": ""
+        "buyer": "nishantve1"
     },
     {
         "price": 500,

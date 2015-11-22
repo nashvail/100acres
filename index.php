@@ -49,9 +49,9 @@ if ( isset($_SESSION['username']) ) {
         <div class="container">
 
         <?php if( !empty($_SESSION['buyingConfirmation'])): ?>
-        <div class="alert alert-info">
+        <div class="alert alert-warning">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <?php echo $_SESSION['buyingConfirmation']; ?>
+            <strong><?php echo $_SESSION['buyingConfirmation']; ?></strong>
         </div>
         <?php endif; ?>
 
