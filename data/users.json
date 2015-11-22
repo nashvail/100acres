@@ -22,6 +22,11 @@
         "firstname": "Mahesh",
         "lastname": "Yadav",
         "password": "chutiya"
+    },
+    "powdel": {
+        "username": "powdel",
+        "firstname": "Suraj",
+        "lastname": "Powdel",
+        "password": "powdel"
     }
-
 }
