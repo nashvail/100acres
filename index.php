@@ -148,23 +148,31 @@ if ( isset($_SESSION['username']) ) {
         </div>
 
         <!-- Modal window to sell new property -->
-        <div class="modal fade" id="modal_addproperty">
+       <div class="modal fade" id="modal_addproperty">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Property details</h4>
+                <h4 class="modal-title">Add new Property for sale</h4>
               </div>
               <div class="modal-body">
-                <?php 
-                  //name
-                  //location
-                  //price
-                 ?> 
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+
+                <form action="addproperty.php" method="POST" role="form">
+                
+                  <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" class="form-control" id="" placeholder="e.g. Sea side quarters" name="name">
+                    <label for="">Location</label>
+                    <input type="text" class="form-control" id="" placeholder="e.g. Icchanath, Surat" name="location">
+                    <label for="">Price</label>
+                    <input type="text" class="form-control" id="" placeholder="in INR" name = "price">
+                  </div>
+                
+
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

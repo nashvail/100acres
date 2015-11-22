@@ -1,7 +1,7 @@
 <?php 
 
 // Array of usernames that are admins
-$admins = array('nishantve1', 'maheshdev');
+$admins = array('nishantve1');
 
 function isAdmin($username) {
 	global $admins;

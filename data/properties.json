@@ -11,40 +11,56 @@
         "price": 220,
         "name": "Old Residence",
         "location": "Surat",
-        "sold": true,
+        "sold": false,
         "owner": "nishantse1",
-        "buyer": "powdel"
+        "buyer": ""
     },
     {
         "price": 500,
         "name": "Beach House",
         "location": "Surat",
-        "sold": false,
+        "sold": true,
         "owner": "maheshdev",
-        "buyer": ""
+        "buyer": "nishantve1"
     },
     {
         "price": 120,
         "name": "Fun House",
         "location": "Surat",
-        "sold": true,
+        "sold": false,
         "owner": "nishantve1",
-        "buyer": "maheshdev"
+        "buyer": ""
     },
     {
         "price": 220,
         "name": "Old Residence",
         "location": "Surat",
-        "sold": true,
+        "sold": false,
         "owner": "nishantse1",
-        "buyer": "nishantve1"
+        "buyer": ""
     },
     {
         "price": 500,
         "name": "Beach House",
         "location": "Surat",
-        "sold": false,
+        "sold": true,
         "owner": "duhGeeek",
+        "buyer": "maheshdev"
+    },
+    {
+        "price": "2",
+        "name": "SVNIT",
+        "location": "Icchanath",
+        "sold": true,
+        "owner": "powdel",
+        "buyer": "nishantve1"
+    },
+    {
+        "price": "235",
+        "name": "B123",
+        "location": "Bhabha Bhavan, SVNIT",
+        "sold": false,
+        "owner": "maheshdev",
         "buyer": ""
     }
 ]

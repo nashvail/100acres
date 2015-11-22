@@ -137,7 +137,8 @@
 .report__propertyRow--total {
   background-color: #F6F6F6 !important;
   border-top: 2px solid #303030;
-  margin-top: 0px; }
+  margin-top: 0px;
+  font-weight: bolder; }
 
 .report__propertyRow__header {
   font-weight: bolder; }
