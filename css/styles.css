@@ -118,6 +118,28 @@
   font-weight: bold;
   font-size: 2rem; }
 
+.report__propertyRow, .report__propertyRow--total {
+  padding: 10px 0 10px 10px;
+  margin-top: 10px;
+  font-size: 2rem; }
+  .report__propertyRow:nth-child(2n), .report__propertyRow--total:nth-child(2n) {
+    background-color: white; }
+
+.report__propertyRow__name, .report__propertyRow--total__name {
+  text-align: left;
+  font-weight: bolder; }
+
+.report__propertyRow__price {
+  text-align: left; }
+
+.report__propertyRow--total__name {
+  text-align: right; }
+
+.report__propertyRow--total {
+  background-color: #F6F6F6 !important;
+  border-top: 2px solid #303030;
+  margin-top: 0px; }
+
 html {
   font-size: 62.5%; }
 

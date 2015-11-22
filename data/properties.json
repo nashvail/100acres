@@ -27,9 +27,9 @@
         "price": 120,
         "name": "Fun House",
         "location": "Surat",
-        "sold": false,
+        "sold": true,
         "owner": "nishantve1",
-        "buyer": ""
+        "buyer": "maheshdev"
     },
     {
         "price": 220,
