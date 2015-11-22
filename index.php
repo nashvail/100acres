@@ -123,16 +123,25 @@ if ( isset($_SESSION['username']) ) {
                 <h4 class="modal-title">Add New User</h4>
               </div>
               <div class="modal-body">
-                <?php 
-                  // username
-                  // firstname
-                  // lastname
-                  // password
-                 ?>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+
+                <form action="adduser.php" method="POST" role="form">
+                
+                  <div class="form-group">
+                    <label for="">Username</label>
+                    <input type="text" class="form-control" id="" placeholder="Must be unique" name="username">
+                    <label for="">First Name</label>
+                    <input type="text" class="form-control" id="" placeholder="e.g. John" name="firstname">
+                    <label for="">Last Name</label>
+                    <input type="text" class="form-control" id="" placeholder="e.g. Doe" name = "lastname">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" id="" placeholder="" name="password">
+                  </div>
+                
+
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
