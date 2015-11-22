@@ -88,7 +88,7 @@ if ( isset($_SESSION['username']) ) {
             <button type="button" class="btn btn-danger header__button--logout" onclick="location.href='./logout.php'"><i class="fa fa-sign-out"></i>&nbsp;LOG OUT</button>
             <?php if( isAdmin($username) ): ?>
             <button type="button" class="btn btn-primary header__button" data-toggle="modal" data-target="#modal_adduser"><i class="fa fa-user-plus"></i>&nbsp;ADD USER</button>
-            <button type="button" class="btn btn-primary header__button--report"><i class="fa fa-file"></i>&nbsp; SALES REPORT</button>
+            <button type="button" class="btn btn-primary header__button--report" onclick="location.href='./report.php'"><i class="fa fa-file"></i>&nbsp; SALES REPORT</button>
             <?php endif; ?>
 
             <button type="button" class="btn btn-success header__button--sell" data-toggle="modal" data-target="#modal_addproperty"><i class="fa fa-plus"></i>&nbsp;SELL</button>

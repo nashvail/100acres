@@ -3,17 +3,17 @@
         "price": 120,
         "name": "Fun House",
         "location": "Surat",
-        "sold": true,
+        "sold": false,
         "owner": "nishantve1",
-        "buyer": "duhGeeek"
+        "buyer": ""
     },
     {
         "price": 220,
         "name": "Old Residence",
         "location": "Surat",
-        "sold": true,
+        "sold": false,
         "owner": "nishantse1",
-        "buyer": "nishantve1"
+        "buyer": ""
     },
     {
         "price": 500,
@@ -27,17 +27,17 @@
         "price": 120,
         "name": "Fun House",
         "location": "Surat",
-        "sold": true,
+        "sold": false,
         "owner": "nishantve1",
-        "buyer": "maheshdev"
+        "buyer": ""
     },
     {
         "price": 220,
         "name": "Old Residence",
         "location": "Surat",
-        "sold": true,
+        "sold": false,
         "owner": "nishantse1",
-        "buyer": "duhGeeek"
+        "buyer": ""
     },
     {
         "price": 500,
