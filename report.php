@@ -17,7 +17,7 @@
     
   } else {
     // unauthorised accces
-    $error = "Unauthorized Access";
+    $error = "You are not authorized to access this content, please login with an admin account.";
   }
 
 ?>
@@ -30,7 +30,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Sales Report</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -46,7 +46,7 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div class="container">
+        <div class="container report_container">
           <?php if( empty($error) ): ?>
             <div role="tabpanel">
                 <!-- Nav tabs -->
@@ -58,25 +58,132 @@
                         <a href="#sold_properties" aria-controls="tab" role="tab" data-toggle="tab">Sold Properties</a>
                     </li>
                     <li role="presentation">
-                        <a href="#unsold_properites" aria-controls="tab" role="tab" data-toggle="tab">Unsold Properties</a>
+                        <a href="#unsold_properties" aria-controls="tab" role="tab" data-toggle="tab">Unsold Properties</a>
                     </li>
 
                 </ul>
             
                 <!-- Tab panes -->
                 <div class="tab-content">
+                    <?php 
+                      $totalPriceAllProperties = 0;
+                      $totalPriceSoldProperties= 0;
+                      $totalPriceUnsoldProperties = 0;
+                     ?>
+                     <!-- All properties -->
                     <div role="tabpanel" class="tab-pane active" id="all_properties">
-                      <?php print_r( $allProperties); ?>
+                      <?php foreach( $allProperties as $property ): ?>
+                      <div class="report__propertyRow">
+                        <div class="row">
+                          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 report__propertyRow__name">
+                          <?php echo $property['name']; ?>
+                          </div>
+                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 report__propertyRow__price">
+                          &#8377;<?php 
+                            $currentPropertyPrice = $property['price'];
+                            $totalPriceAllProperties += $currentPropertyPrice;
+                            echo $currentPropertyPrice;
+                          ?>
+                          </div>
+                        </div>
+                      </div>
+                      <?php endforeach; ?>
+
+                      <div class="report__propertyRow--total">
+                        <div class="row">
+                          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 report__propertyRow--total__name">
+                          TOTAL
+                          </div>
+                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 report__propertyRow__price">
+                          &#8377;<?php 
+                            echo $totalPriceAllProperties;
+                          ?>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+
+                    <!-- Sold Properties -->
                     <div role="tabpanel" class="tab-pane" id="sold_properties">
-                      <?php print_r( $soldProperties); ?>
+                      <?php foreach( $soldProperties as $property ): ?>
+                      <div class="report__propertyRow">
+                        <div class="row">
+                          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 report__propertyRow__name">
+                          <?php echo $property['name']; ?>
+                          </div>
+                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 report__propertyRow__price">
+                          &#8377;<?php 
+                            $currentPropertyPrice = $property['price'];
+                            $totalPriceSoldProperties += $currentPropertyPrice;
+                            echo $currentPropertyPrice;
+                          ?>
+                          </div>
+                        </div>
+                      </div>
+                      <?php endforeach; ?>
+
+                      <div class="report__propertyRow--total">
+                        <div class="row">
+                          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 report__propertyRow--total__name">
+                          TOTAL
+                          </div>
+                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 report__propertyRow__price">
+                          &#8377;<?php 
+                            echo $totalPriceSoldProperties;
+                          ?>
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
+
+                    <!-- Unsold Properties -->
                     <div role="tabpanel" class="tab-pane" id="unsold_properties">
-                      <?php print_r( $unsoldProperties ); ?>
+                      <?php foreach( $unsoldProperties as $property ): ?>
+                      <div class="report__propertyRow">
+                        <div class="row">
+                          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 report__propertyRow__name">
+                          <?php echo $property['name']; ?>
+                          </div>
+                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 report__propertyRow__price">
+                          &#8377;<?php 
+                            $currentPropertyPrice = $property['price'];
+                            $totalPriceUnsoldProperties += $currentPropertyPrice;
+                            echo $currentPropertyPrice;
+                          ?>
+                          </div>
+                        </div>
+                      </div>
+                      <?php endforeach; ?>
+
+                      <div class="report__propertyRow--total">
+                        <div class="row">
+                          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 report__propertyRow--total__name">
+                          TOTAL
+                          </div>
+                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 report__propertyRow__price">
+                          &#8377;<?php 
+                            echo $totalPriceUnsoldProperties;
+                          ?>
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
                 </div>
             </div>
-          <?php endif; ?>
+          <?php else: ?>
+            <br>
+            <br>
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Unauthorized access!</h3>
+                </div>
+                <div class="panel-body">
+                <?php echo $error; ?>
+                </div>
+            </div>
+          <?php  endif; ?>
         </div>
 
 
