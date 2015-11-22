@@ -3,25 +3,30 @@
         "username": "nishantse1",
         "firstname": "Nishant",
         "lastname": "Sharma",
-        "password": "whatthehell"
+        "password": "1234"
     },
     "nishantve1": {
         "username": "nishantve1",
         "firstname": "Nishant",
         "lastname": "Verma",
-        "password": "whatthehell"
+        "password": "1234"
     },
     "duhGeeek": {
         "username": "duhGeeek",
         "firstname": "The",
         "lastname": "Geek",
-        "password": "whatthehell"
+        "password": "1234"
     },
     "maheshdev": {
         "username": "maheshdev",
         "firstname": "Mahesh",
         "lastname": "Yadav",
-        "password": "chutiya"
+        "password": "1234"
+    },
+    "powdel": {
+        "username": "powdel",
+        "firstname": "Suraj",
+        "lastname": "Powdel",
+        "password": "1234"
     }
-
 }

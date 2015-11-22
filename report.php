@@ -2,14 +2,15 @@
   session_start();
 
   require 'helpers/adminManager.php';
-  require 'JSONStream.php';
   require 'PropertiesDatabase.php';
+  require 'UsersDatabase.php';
 
   $error;
 
   if ( isset($_SESSION['username']) && isAdmin($_SESSION['username']) ) {
 
     $propertiesDatabase = new PropertiesDatabase('data/properties.json');
+    $usersDatabase = new UsersDatabase('data/users.json');
 
     $allProperties = $propertiesDatabase->dataArray();
     $soldProperties = $propertiesDatabase->soldProperties();
@@ -65,6 +66,22 @@
             
                 <!-- Tab panes -->
                 <div class="tab-content">
+                  <div class="report__propertyRow__header">
+                    <div class="row">
+                      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        PROPERTY                        
+                      </div>
+                      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        OWNER 
+                      </div>
+                      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        BUYER 
+                      </div>
+                      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        PRICE 
+                      </div>
+                    </div>
+                  </div>
                     <?php 
                       $totalPriceAllProperties = 0;
                       $totalPriceSoldProperties= 0;
@@ -75,26 +92,37 @@
                       <?php foreach( $allProperties as $property ): ?>
                       <div class="report__propertyRow">
                         <div class="row">
-                          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 report__propertyRow__name">
-                          <?php echo $property['name']; ?>
+                          <!-- Property Name -->
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 report__propertyRow__name">
+                            <?php echo $property['name']; ?>
                           </div>
-                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 report__propertyRow__price">
-                          &#8377;<?php 
-                            $currentPropertyPrice = $property['price'];
-                            $totalPriceAllProperties += $currentPropertyPrice;
-                            echo $currentPropertyPrice;
-                          ?>
+                          <!-- Property Owner -->
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                          <?php echo $usersDatabase->userFullName($property['owner']); ?>
                           </div>
+                          <!-- Propertry Buyer if exists -->
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                          <?php echo $usersDatabase->userFullName($property['buyer']); ?>
+                          </div>
+                          <!-- Property price -->
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 report__propertyRow__price">
+                            &#8377;<?php 
+                              $currentPropertyPrice = $property['price'];
+                              $totalPriceAllProperties += $currentPropertyPrice;
+                              echo $currentPropertyPrice;
+                            ?>
+                          </div>
+
                         </div>
-                      </div>
+                       </div>
                       <?php endforeach; ?>
 
                       <div class="report__propertyRow--total">
                         <div class="row">
-                          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 report__propertyRow--total__name">
+                          <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 report__propertyRow--total__name">
                           TOTAL
                           </div>
-                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 report__propertyRow__price">
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 report__propertyRow__price">
                           &#8377;<?php 
                             echo $totalPriceAllProperties;
                           ?>
@@ -108,26 +136,37 @@
                       <?php foreach( $soldProperties as $property ): ?>
                       <div class="report__propertyRow">
                         <div class="row">
-                          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 report__propertyRow__name">
-                          <?php echo $property['name']; ?>
+                          <!-- Property Name -->
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 report__propertyRow__name">
+                            <?php echo $property['name']; ?>
                           </div>
-                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 report__propertyRow__price">
-                          &#8377;<?php 
-                            $currentPropertyPrice = $property['price'];
-                            $totalPriceSoldProperties += $currentPropertyPrice;
-                            echo $currentPropertyPrice;
-                          ?>
+                          <!-- Property Owner -->
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                          <?php echo $usersDatabase->userFullName($property['owner']); ?>
                           </div>
+                          <!-- Propertry Buyer if exists -->
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                          <?php echo $usersDatabase->userFullName($property['buyer']); ?>
+                          </div>
+                          <!-- Property price -->
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 report__propertyRow__price">
+                            &#8377;<?php 
+                              $currentPropertyPrice = $property['price'];
+                              $totalPriceSoldProperties += $currentPropertyPrice;
+                              echo $currentPropertyPrice;
+                            ?>
+                          </div>
+
                         </div>
-                      </div>
+                       </div>
                       <?php endforeach; ?>
 
                       <div class="report__propertyRow--total">
                         <div class="row">
-                          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 report__propertyRow--total__name">
+                          <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 report__propertyRow--total__name">
                           TOTAL
                           </div>
-                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 report__propertyRow__price">
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 report__propertyRow__price">
                           &#8377;<?php 
                             echo $totalPriceSoldProperties;
                           ?>
@@ -142,26 +181,37 @@
                       <?php foreach( $unsoldProperties as $property ): ?>
                       <div class="report__propertyRow">
                         <div class="row">
-                          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 report__propertyRow__name">
-                          <?php echo $property['name']; ?>
+                          <!-- Property Name -->
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 report__propertyRow__name">
+                            <?php echo $property['name']; ?>
                           </div>
-                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 report__propertyRow__price">
-                          &#8377;<?php 
-                            $currentPropertyPrice = $property['price'];
-                            $totalPriceUnsoldProperties += $currentPropertyPrice;
-                            echo $currentPropertyPrice;
-                          ?>
+                          <!-- Property Owner -->
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                          <?php echo $usersDatabase->userFullName($property['owner']); ?>
                           </div>
+                          <!-- Propertry Buyer if exists -->
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                          <?php echo $usersDatabase->userFullName($property['buyer']); ?>
+                          </div>
+                          <!-- Property price -->
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 report__propertyRow__price">
+                            &#8377;<?php 
+                              $currentPropertyPrice = $property['price'];
+                              $totalPriceUnsoldProperties += $currentPropertyPrice;
+                              echo $currentPropertyPrice;
+                            ?>
+                          </div>
+
                         </div>
-                      </div>
+                       </div>
                       <?php endforeach; ?>
 
                       <div class="report__propertyRow--total">
                         <div class="row">
-                          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 report__propertyRow--total__name">
+                          <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 report__propertyRow--total__name">
                           TOTAL
                           </div>
-                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 report__propertyRow__price">
+                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 report__propertyRow__price">
                           &#8377;<?php 
                             echo $totalPriceUnsoldProperties;
                           ?>

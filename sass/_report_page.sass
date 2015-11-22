@@ -1,13 +1,13 @@
 .report__propertyRow
 	padding : 10px 0 10px 10px
 	margin-top : 10px
-	font-size: 2rem
+	font-size: 1.8rem
 	&:nth-child(2n) 
 		background-color : white
 
 .report__propertyRow__name
 	text-align : left
-	font-weight : bolder
+	// font-weight : bolder
 
 .report__propertyRow__price
 	text-align : left
@@ -21,3 +21,8 @@
 	background-color : #F6F6F6 !important
 	border-top : 2px solid #303030 
 	margin-top : 0px
+	font-weight : bolder
+
+.report__propertyRow__header
+	@extend .report__propertyRow
+	font-weight : bolder
