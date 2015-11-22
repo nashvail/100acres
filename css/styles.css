@@ -118,16 +118,15 @@
   font-weight: bold;
   font-size: 2rem; }
 
-.report__propertyRow, .report__propertyRow--total {
+.report__propertyRow, .report__propertyRow--total, .report__propertyRow__header {
   padding: 10px 0 10px 10px;
   margin-top: 10px;
-  font-size: 2rem; }
-  .report__propertyRow:nth-child(2n), .report__propertyRow--total:nth-child(2n) {
+  font-size: 1.8rem; }
+  .report__propertyRow:nth-child(2n), .report__propertyRow--total:nth-child(2n), .report__propertyRow__header:nth-child(2n) {
     background-color: white; }
 
 .report__propertyRow__name, .report__propertyRow--total__name {
-  text-align: left;
-  font-weight: bolder; }
+  text-align: left; }
 
 .report__propertyRow__price {
   text-align: left; }
@@ -139,6 +138,9 @@
   background-color: #F6F6F6 !important;
   border-top: 2px solid #303030;
   margin-top: 0px; }
+
+.report__propertyRow__header {
+  font-weight: bolder; }
 
 html {
   font-size: 62.5%; }
